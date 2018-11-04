@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.webarity</groupId>
+        <artifactId>ear-template-fast-start</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+    
+    <groupId>com.webarity</groupId>
+    <artifactId>webarity-template-ear</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>ear</packaging>
+
+    <name>${project.artifactId}</name>
+  
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <version>6</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <webModule>
+                            <groupId>com.webarity</groupId>
+                            <artifactId>war-servlet-fast-start</artifactId>
+                            <contextRoot>/</contextRoot>
+                            <unpack>true</unpack>
+                        </webModule>
+                        <ejbModule>
+                            <groupId>com.webarity</groupId>
+                            <artifactId>some-ejb-module</artifactId>
+                            <unpack>true</unpack>
+                        </ejbModule>
+                        <jarModule>
+                            <groupId>com.webarity</groupId>
+                            <artifactId>some-common-lib</artifactId>
+                            <unpack>true</unpack>
+                        </jarModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.webarity</groupId>
+            <artifactId>war-servlet-fast-start</artifactId>
+            <type>war</type>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.webarity</groupId>
+            <artifactId>some-ejb-module</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>com.webarity</groupId>
+            <artifactId>some-common-lib</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+</project>
